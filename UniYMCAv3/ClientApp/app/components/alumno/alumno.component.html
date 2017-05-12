@@ -1,0 +1,20 @@
+﻿<div class="container-fluid">
+    <div class="col-md-12">
+        <h2>{{Alumnos}}</h2>
+        <div class="table ui-datatable">
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                    <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+                        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input #gb type="text" pInputText size="40" placeholder="Global Filter">
+                    </div>
+                </div>
+            </div>
+            <p-dataTable [value]="cars" [rows]="10" [paginator]="true" sortMode="multiple" [globalFilter]="gb" #dt class="table table-striped">
+                <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [sortable]="true">
+                </p-column>
+            </p-dataTable>
+        </div>
+    </div>
+</div>
