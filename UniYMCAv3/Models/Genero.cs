@@ -8,7 +8,7 @@ namespace UniYMCAv3.Models
         public Genero()
         {
             AlumnoDetalle = new HashSet<AlumnoDetalle>();
-            DocenteDetalle = new HashSet<DocenteDetalle>();
+            DocenteDetalle1 = new HashSet<DocenteDetalle1>();
             ProspectoDetalle = new HashSet<ProspectoDetalle>();
             UsuarioDetalle = new HashSet<UsuarioDetalle>();
         }
@@ -17,7 +17,7 @@ namespace UniYMCAv3.Models
         public string Descripcion { get; set; }
 
         public virtual ICollection<AlumnoDetalle> AlumnoDetalle { get; set; }
-        public virtual ICollection<DocenteDetalle> DocenteDetalle { get; set; }
+        public virtual ICollection<DocenteDetalle1> DocenteDetalle1 { get; set; }
         public virtual ICollection<ProspectoDetalle> ProspectoDetalle { get; set; }
         public virtual ICollection<UsuarioDetalle> UsuarioDetalle { get; set; }
     }

@@ -16,5 +16,7 @@ namespace UniYMCAv3.Models
 
         public virtual Alumno Alumno { get; set; }
         public virtual Pregunta Pregunta { get; set; }
+        public virtual PreguntaTipoValores PreguntaTipoValoresId1Navigation { get; set; }
+        public virtual PreguntaTipoValores PreguntaTipoValoresId2Navigation { get; set; }
     }
 }

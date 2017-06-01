@@ -8,6 +8,7 @@ namespace UniYMCAv3.Models
         public OfertaEducativa()
         {
             Adeudo = new HashSet<Adeudo>();
+            AlumnoCuatrimestre = new HashSet<AlumnoCuatrimestre>();
             AlumnoDescuento = new HashSet<AlumnoDescuento>();
             AlumnoInscrito = new HashSet<AlumnoInscrito>();
             AlumnoInscritoBitacora = new HashSet<AlumnoInscritoBitacora>();
@@ -42,6 +43,7 @@ namespace UniYMCAv3.Models
         public int EstatusId { get; set; }
 
         public virtual ICollection<Adeudo> Adeudo { get; set; }
+        public virtual ICollection<AlumnoCuatrimestre> AlumnoCuatrimestre { get; set; }
         public virtual ICollection<AlumnoDescuento> AlumnoDescuento { get; set; }
         public virtual ICollection<AlumnoInscrito> AlumnoInscrito { get; set; }
         public virtual ICollection<AlumnoInscritoBitacora> AlumnoInscritoBitacora { get; set; }

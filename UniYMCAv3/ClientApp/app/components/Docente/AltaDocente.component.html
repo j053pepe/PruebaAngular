@@ -1,0 +1,386 @@
+﻿<div class="container-fluid">
+    <div class="ui-md-12">
+
+
+        <div class="ui-md-12">
+            <h2>Alta Docente</h2>
+
+        </div>
+
+        <div class="ui-md-12" style="margin: 20px 0px">
+            <p-steps [model]="items" [(activeIndex)]="activeIndex" styleClass="steps-custom">
+            </p-steps>
+        </div>
+
+
+        <div class="ui-md-12">
+            <p-growl [value]="msgs" sticky="sticky"></p-growl>
+
+            <form [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
+                <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+                    <p-tabPanel [selected]="tab1" style="border:0px solid !important">
+                        <!--datos personales-->
+                        <p-panel header="Datos Personales">
+
+                            <div class="ui-grid-row">
+
+                                <div class="ui-md-6">
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Nombre
+                                            <input type="text" pInputText formControlName="nombre" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['nombre'].valid&&userform.controls['nombre'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Apellido Paterno
+                                            <input type="text" pInputText formControlName="paterno" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['paterno'].valid&&userform.controls['paterno'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Apellido Materno
+                                            <input type="text" pInputText formControlName="materno" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['materno'].valid&&userform.controls['materno'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-6">
+                                            Fecha de Nacimiento
+                                            <p-calendar [(ngModel)]="date1" [showIcon]="true" formControlName="nacimiento" [locale]="es"></p-calendar>
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['nacimiento'].valid&&userform.controls['nacimiento'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Nacionalidad
+                                            <p-dropdown [options]="nacional" formControlName="nacionalidad" [autoWidth]="false"></p-dropdown>
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['nacionalidad'].valid&&userform.controls['nacionalidad'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Lugar de Nacimiento
+                                            <p-dropdown [options]="nacimientoLugar" formControlName="lugarnacimiento" [autoWidth]="false"></p-dropdown>
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['lugarnacimiento'].valid&&userform.controls['lugarnacimiento'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ui-md-6">
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            CURP
+                                            <input type="text" pInputText formControlName="curp" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['curp'].valid&&userform.controls['curp'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            RFC
+                                            <input type="text" pInputText formControlName="rfc" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['rfc'].valid&&userform.controls['rfc'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Numero de Seguridad Social
+                                            <input type="text" pInputText formControlName="nss" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['nss'].valid&&userform.controls['nss'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Genero
+                                            <p-dropdown [options]="genero" formControlName="genero" [autoWidth]="false"></p-dropdown>
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['genero'].valid&&userform.controls['genero'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Estado Civil
+                                            <p-dropdown [options]="estadocivil" formControlName="estadocivil" [autoWidth]="false"></p-dropdown>
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['estadocivil'].valid&&userform.controls['estadocivil'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </p-panel>
+
+                        <!--dirección-->
+
+                        <div class="ui-grid-row">
+
+                            <div class="ui-md-6">
+                                <p-panel header="Dirección Particular">
+                                    <br />
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Calle
+                                            <input type="text" pInputText formControlName="calle" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['calle'].valid&&userform.controls['calle'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Número Exterior
+                                            <input type="text" pInputText formControlName="exterior" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['exterior'].valid&&userform.controls['exterior'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Numero Interior
+                                            <input type="text"  pInputText formControlName="interior" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['interior'].valid&&userform.controls['interior'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-5">
+                                            Código Postal
+                                            <input type="text"  onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" pInputText formControlName="cp" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['cp'].valid&&userform.controls['cp'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Colonia
+                                            <input type="text" pInputText formControlName="colonia" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['colonia'].valid&&userform.controls['colonia'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Estado
+                                            <p-dropdown [options]="estado" formControlName="estado" [autoWidth]="false"></p-dropdown>
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['estado'].valid&&userform.controls['estado'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Delegación | Municipio
+                                            <p-dropdown [options]="municipio" formControlName="municipio" [autoWidth]="false"></p-dropdown>
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['municipio'].valid&&userform.controls['municipio'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p-panel>
+                            </div>
+
+                            <div class="ui-md-6">
+                                <p-panel header="Dirección Fiscal">
+                                    <p-checkbox binary="true" [(ngModel)]="checked"  (onChange)="MismaDiceccion()" label="Usar la misma dirección" formControlName="checked"></p-checkbox>
+                                    <div class="ui-grid-row">
+                                       
+                                        <div class="ui-md-10">
+                                            Calle
+                                            <input type="text" pInputText formControlName="callef" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['callef'].valid&&userform.controls['callef'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Número Exterior
+                                            <input type="text" pInputText formControlName="exteriorf" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['exteriorf'].valid&&userform.controls['exteriorf'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Numero Interior
+                                            <input type="text" pInputText formControlName="interiorf" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['interiorf'].valid&&userform.controls['interiorf'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-5">
+                                            Código Postal
+                                            <input type="text"  onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" pInputText formControlName="cpf" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['cpf'].valid&&userform.controls['cpf'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Colonia
+                                            <input type="text" pInputText formControlName="coloniaf" />
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['coloniaf'].valid&&userform.controls['coloniaf'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Estado
+                                            <p-dropdown [options]="estado" formControlName="estadof" [autoWidth]="false"></p-dropdown>
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['estadof'].valid&&userform.controls['estadof'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-md-10">
+                                            Delegación | Municipio
+                                            <p-dropdown [options]="municipio" formControlName="municipiof" [autoWidth]="false"></p-dropdown>
+                                        </div>
+                                        <div class="ui-md-2">
+                                            <br />
+                                            <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!userform.controls['municipiof'].valid&&userform.controls['municipiof'].dirty">
+                                                <i class="fa fa-close"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p-panel>
+                            </div>
+
+                        </div>
+
+                       
+
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2"></div>
+                            <div class="ui-grid-col-6">
+                                <button pButton type="submit" label="Submit" [disabled]="!userform.valid"></button>
+                            </div>
+                            <div class="ui-grid-col-4"></div>
+                        </div>
+                        <div style="text-align:center;margin-top:20px" *ngIf="submitted">
+                            Form Submitted
+                            <br>
+                            {{diagnostic}}
+                        </div>
+
+                    </p-tabPanel>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="ui-md-12">
+            <button pButton type="button" (click)="Atras()" label="Atras"></button>
+            <button pButton type="button" (click)="Siguente()" label="Siguente"></button>
+        </div>
+
+
+    </div>
+
+</div>

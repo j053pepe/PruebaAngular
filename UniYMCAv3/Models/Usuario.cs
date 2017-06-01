@@ -10,6 +10,7 @@ namespace UniYMCAv3.Models
             AdeudoBiblioteca = new HashSet<AdeudoBiblioteca>();
             Alumno = new HashSet<Alumno>();
             AlumnoAntecedenteBitacora = new HashSet<AlumnoAntecedenteBitacora>();
+            AlumnoCuatrimestre = new HashSet<AlumnoCuatrimestre>();
             AlumnoDescuento = new HashSet<AlumnoDescuento>();
             AlumnoDescuentoPendiente = new HashSet<AlumnoDescuentoPendiente>();
             AlumnoExamenMedico = new HashSet<AlumnoExamenMedico>();
@@ -21,9 +22,9 @@ namespace UniYMCAv3.Models
             AlumnoRevision = new HashSet<AlumnoRevision>();
             BecaDeportiva = new HashSet<BecaDeportiva>();
             CuotaIncremento = new HashSet<CuotaIncremento>();
-            Docente = new HashSet<Docente>();
+            Docente1 = new HashSet<Docente1>();
             Empresa = new HashSet<Empresa>();
-            Grupo = new HashSet<Grupo>();
+            Grupo1 = new HashSet<Grupo1>();
             GrupoAlumnoConfiguracion = new HashSet<GrupoAlumnoConfiguracion>();
             GrupoAlumnoConfiguracionBitacora = new HashSet<GrupoAlumnoConfiguracionBitacora>();
             GrupoComprobante = new HashSet<GrupoComprobante>();
@@ -62,6 +63,7 @@ namespace UniYMCAv3.Models
         public virtual AdeudoChocolates AdeudoChocolates { get; set; }
         public virtual ICollection<Alumno> Alumno { get; set; }
         public virtual ICollection<AlumnoAntecedenteBitacora> AlumnoAntecedenteBitacora { get; set; }
+        public virtual ICollection<AlumnoCuatrimestre> AlumnoCuatrimestre { get; set; }
         public virtual ICollection<AlumnoDescuento> AlumnoDescuento { get; set; }
         public virtual ICollection<AlumnoDescuentoPendiente> AlumnoDescuentoPendiente { get; set; }
         public virtual ICollection<AlumnoExamenMedico> AlumnoExamenMedico { get; set; }
@@ -73,9 +75,9 @@ namespace UniYMCAv3.Models
         public virtual ICollection<AlumnoRevision> AlumnoRevision { get; set; }
         public virtual ICollection<BecaDeportiva> BecaDeportiva { get; set; }
         public virtual ICollection<CuotaIncremento> CuotaIncremento { get; set; }
-        public virtual ICollection<Docente> Docente { get; set; }
+        public virtual ICollection<Docente1> Docente1 { get; set; }
         public virtual ICollection<Empresa> Empresa { get; set; }
-        public virtual ICollection<Grupo> Grupo { get; set; }
+        public virtual ICollection<Grupo1> Grupo1 { get; set; }
         public virtual ICollection<GrupoAlumnoConfiguracion> GrupoAlumnoConfiguracion { get; set; }
         public virtual ICollection<GrupoAlumnoConfiguracionBitacora> GrupoAlumnoConfiguracionBitacora { get; set; }
         public virtual ICollection<GrupoComprobante> GrupoComprobante { get; set; }

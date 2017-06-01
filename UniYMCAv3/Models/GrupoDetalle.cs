@@ -14,6 +14,6 @@ namespace UniYMCAv3.Models
         public bool EsCuotaCongelada { get; set; }
 
         public virtual Cuota Cuota { get; set; }
-        public virtual Grupo Grupo { get; set; }
+        public virtual Grupo1 Grupo { get; set; }
     }
 }

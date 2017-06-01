@@ -13,7 +13,7 @@ namespace UniYMCAv3.Models
         public int UsuarioId { get; set; }
 
         public virtual GrupoComprobanteDocumento GrupoComprobanteDocumento { get; set; }
-        public virtual Grupo Grupo { get; set; }
+        public virtual Grupo1 Grupo { get; set; }
         public virtual Usuario Usuario { get; set; }
     }
 }

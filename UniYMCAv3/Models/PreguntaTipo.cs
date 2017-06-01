@@ -7,7 +7,8 @@ namespace UniYMCAv3.Models
     {
         public PreguntaTipo()
         {
-            Pregunta = new HashSet<Pregunta>();
+            PreguntaCompuesta = new HashSet<PreguntaCompuesta>();
+            PreguntaConfiguracion = new HashSet<PreguntaConfiguracion>();
             PreguntaTipoValores = new HashSet<PreguntaTipoValores>();
         }
 
@@ -15,7 +16,8 @@ namespace UniYMCAv3.Models
         public string Descripcion { get; set; }
         public int? ValorId { get; set; }
 
-        public virtual ICollection<Pregunta> Pregunta { get; set; }
+        public virtual ICollection<PreguntaCompuesta> PreguntaCompuesta { get; set; }
+        public virtual ICollection<PreguntaConfiguracion> PreguntaConfiguracion { get; set; }
         public virtual ICollection<PreguntaTipoValores> PreguntaTipoValores { get; set; }
         public virtual PreguntaValor Valor { get; set; }
     }

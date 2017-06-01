@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace UniYMCAv3.Models
 {
-    public partial class Grupo
+    public partial class Grupo1
     {
-        public Grupo()
+        public Grupo1()
         {
             GrupoAlumnoConfiguracion = new HashSet<GrupoAlumnoConfiguracion>();
             GrupoComprobante = new HashSet<GrupoComprobante>();
