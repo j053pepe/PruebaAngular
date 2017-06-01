@@ -33,7 +33,7 @@ namespace UniYMCAv3
             // Add framework services.
             services.AddMvc();
             var connection = @"Server=108.163.172.122;Database=Universidad_w;Persist Security Info=True;User ID=usrProgramador;Password=Programador@@23+;MultipleActiveResultSets=True;Application Name=EntityFramework";
-            services.AddDbContext<Universidad_wContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<UniversidadContext>(options => options.UseSqlServer(connection));
 
         }
 

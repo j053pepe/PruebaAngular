@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace UniYMCAv3.Models
 {
-    public partial class Universidad_wContext : DbContext
+    public partial class UniversidadContext : DbContext
     {
         public virtual DbSet<Adeudo> Adeudo { get; set; }
         public virtual DbSet<AdeudoBiblioteca> AdeudoBiblioteca { get; set; }
@@ -70,7 +70,11 @@ namespace UniYMCAv3.Models
         public virtual DbSet<DescuentoTipo> DescuentoTipo { get; set; }
         public virtual DbSet<Dia> Dia { get; set; }
         public virtual DbSet<Docente> Docente { get; set; }
+        public virtual DbSet<Docente1> Docente1 { get; set; }
         public virtual DbSet<DocenteDetalle> DocenteDetalle { get; set; }
+        public virtual DbSet<DocenteDetalle1> DocenteDetalle1 { get; set; }
+        public virtual DbSet<DocenteEstudio> DocenteEstudio { get; set; }
+        public virtual DbSet<DocentePublicacion> DocentePublicacion { get; set; }
         public virtual DbSet<Empresa> Empresa { get; set; }
         public virtual DbSet<EmpresaDetalle> EmpresaDetalle { get; set; }
         public virtual DbSet<EntidadFederativa> EntidadFederativa { get; set; }
@@ -78,7 +82,7 @@ namespace UniYMCAv3.Models
         public virtual DbSet<Estatus> Estatus { get; set; }
         public virtual DbSet<Financiamiento> Financiamiento { get; set; }
         public virtual DbSet<Genero> Genero { get; set; }
-        public virtual DbSet<Grupo> Grupo { get; set; }
+        public virtual DbSet<Grupo1> Grupo1 { get; set; }
         public virtual DbSet<GrupoAlumno> GrupoAlumno { get; set; }
         public virtual DbSet<GrupoAlumnoBitacora> GrupoAlumnoBitacora { get; set; }
         public virtual DbSet<GrupoAlumnoConfiguracion> GrupoAlumnoConfiguracion { get; set; }
@@ -87,10 +91,15 @@ namespace UniYMCAv3.Models
         public virtual DbSet<GrupoComprobante> GrupoComprobante { get; set; }
         public virtual DbSet<GrupoComprobanteDocumento> GrupoComprobanteDocumento { get; set; }
         public virtual DbSet<GrupoDetalle> GrupoDetalle { get; set; }
+        public virtual DbSet<Hora> Hora { get; set; }
         public virtual DbSet<IdiomaGrupo> IdiomaGrupo { get; set; }
         public virtual DbSet<IdiomaGrupoAlumno> IdiomaGrupoAlumno { get; set; }
         public virtual DbSet<IngresosPermiso> IngresosPermiso { get; set; }
         public virtual DbSet<LenguasRelacion> LenguasRelacion { get; set; }
+        public virtual DbSet<Materia> Materia { get; set; }
+        public virtual DbSet<MateriaApertura> MateriaApertura { get; set; }
+        public virtual DbSet<MateriaCompartida> MateriaCompartida { get; set; }
+        public virtual DbSet<MateriaTipo> MateriaTipo { get; set; }
         public virtual DbSet<Matricula> Matricula { get; set; }
         public virtual DbSet<MedioDifusion> MedioDifusion { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
@@ -139,7 +148,8 @@ namespace UniYMCAv3.Models
         public virtual DbSet<PolizaSubtipo> PolizaSubtipo { get; set; }
         public virtual DbSet<PolizaTipo> PolizaTipo { get; set; }
         public virtual DbSet<Pregunta> Pregunta { get; set; }
-        public virtual DbSet<PreguntaRelacion> PreguntaRelacion { get; set; }
+        public virtual DbSet<PreguntaCompuesta> PreguntaCompuesta { get; set; }
+        public virtual DbSet<PreguntaConfiguracion> PreguntaConfiguracion { get; set; }
         public virtual DbSet<PreguntaTipo> PreguntaTipo { get; set; }
         public virtual DbSet<PreguntaTipoValores> PreguntaTipoValores { get; set; }
         public virtual DbSet<PreguntaValor> PreguntaValor { get; set; }
@@ -167,6 +177,9 @@ namespace UniYMCAv3.Models
         public virtual DbSet<ReferenciadoDetalleBitacora> ReferenciadoDetalleBitacora { get; set; }
         public virtual DbSet<ReferenciadoLayout> ReferenciadoLayout { get; set; }
         public virtual DbSet<Respuesta> Respuesta { get; set; }
+        public virtual DbSet<Salon> Salon { get; set; }
+        public virtual DbSet<SalonAsignacion> SalonAsignacion { get; set; }
+        public virtual DbSet<Sede> Sede { get; set; }
         public virtual DbSet<SistemaConfiguracion> SistemaConfiguracion { get; set; }
         public virtual DbSet<SubMenu> SubMenu { get; set; }
         public virtual DbSet<Subperiodo> Subperiodo { get; set; }
@@ -201,8 +214,10 @@ namespace UniYMCAv3.Models
         // Unable to generate entity type for table 'dbo.AlumnoMatricula'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.Tabla2'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.tmpReferencias'. Please see the warning messages.
+        // Unable to generate entity type for table 'Egresos.DocenteDatosFiscales'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.IdiomasInscrito'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.AlumnosLE20162'. Please see the warning messages.
+        // Unable to generate entity type for table 'Egresos.Grupo'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.AlumnosLEAgregar20162'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.COLEGIATURA'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.tmpRelacionAlumno'. Please see the warning messages.
@@ -228,13 +243,11 @@ namespace UniYMCAv3.Models
         // Unable to generate entity type for table 'dbo.tmpPago'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.tmpAlumnoDescuento'. Please see the warning messages.
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-        //    optionsBuilder.UseSqlServer(@"Server=108.163.172.122;Database=Universidad_w;Persist Security Info=True;User ID=usrProgramador;Password=Programador@@23+;MultipleActiveResultSets=True;Application Name=EntityFramework");
-        //}
-        public Universidad_wContext(DbContextOptions<Universidad_wContext> options): base(options)
-        {        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Adeudo>(entity =>
@@ -490,19 +503,47 @@ namespace UniYMCAv3.Models
                 entity.HasKey(e => new { e.AlumnoId, e.OfertaEducativaId, e.Anio, e.PeriodoId })
                     .HasName("PK_AlumnoCuatrimestre");
 
-                entity.Property(e => e.FechaInscripcion).HasColumnType("date");
+                entity.Property(e => e.EsRegular).HasColumnName("esRegular");
 
-                entity.Property(e => e.HoraInscripcion).HasColumnType("time(0)");
+                entity.Property(e => e.FechaAsignacion).HasColumnType("date");
+
+                entity.Property(e => e.HoraAsignacion).HasColumnType("time(0)");
+
+                entity.HasOne(d => d.Alumno)
+                    .WithMany(p => p.AlumnoCuatrimestre)
+                    .HasForeignKey(d => d.AlumnoId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_AlumnoCuatrimestre_Alumno");
+
+                entity.HasOne(d => d.OfertaEducativa)
+                    .WithMany(p => p.AlumnoCuatrimestre)
+                    .HasForeignKey(d => d.OfertaEducativaId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_AlumnoCuatrimestre_OfertaEducativa");
+
+                entity.HasOne(d => d.Usuario)
+                    .WithMany(p => p.AlumnoCuatrimestre)
+                    .HasForeignKey(d => d.UsuarioId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_AlumnoCuatrimestre_Usuario");
+
+                entity.HasOne(d => d.Periodo)
+                    .WithMany(p => p.AlumnoCuatrimestre)
+                    .HasForeignKey(d => new { d.Anio, d.PeriodoId })
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_AlumnoCuatrimestre_Periodo");
             });
 
             modelBuilder.Entity<AlumnoCuatrimestreBitacora>(entity =>
             {
-                entity.HasKey(e => new { e.AlumnoId, e.OfertaEducativaId, e.FechaInscripcion, e.HoraInscripcion })
+                entity.HasKey(e => new { e.AlumnoId, e.OfertaEducativaId, e.FechaAsignacion, e.HoraAsignacion })
                     .HasName("PK_AlumnoCuatrimestreBitacora");
 
-                entity.Property(e => e.FechaInscripcion).HasColumnType("date");
+                entity.Property(e => e.FechaAsignacion).HasColumnType("date");
 
-                entity.Property(e => e.HoraInscripcion).HasColumnType("time(0)");
+                entity.Property(e => e.HoraAsignacion).HasColumnType("time(0)");
+
+                entity.Property(e => e.EsRegular).HasColumnName("esRegular");
             });
 
             modelBuilder.Entity<AlumnoDescuento>(entity =>
@@ -1295,19 +1336,19 @@ namespace UniYMCAv3.Models
                     .WithOne(p => p.AlumnoMovimientoBaja)
                     .HasForeignKey<AlumnoMovimientoBaja>(d => d.AlumnoMovimientoId)
                     .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK_AlumnoMovimientoBaja_AlumnoMovimiento1");
+                    .HasConstraintName("FK_AlumnoMovimientoBaja_AlumnoMovimiento");
 
                 entity.HasOne(d => d.BajaMotivo)
                     .WithMany(p => p.AlumnoMovimientoBaja)
                     .HasForeignKey(d => d.BajaMotivoId)
                     .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK_AlumnoMovimientoBaja_BajaMotivo1");
+                    .HasConstraintName("FK_AlumnoMovimientoBaja_BajaMotivo");
             });
 
             modelBuilder.Entity<AlumnoMovimientoCarrera>(entity =>
             {
                 entity.HasKey(e => e.AlumnoMovimientoId)
-                    .HasName("PK_AlumnoMovimientoCarrera_1");
+                    .HasName("PK_AlumnoMovimientoCarrera");
 
                 entity.Property(e => e.AlumnoMovimientoId).ValueGeneratedNever();
 
@@ -1317,7 +1358,7 @@ namespace UniYMCAv3.Models
                     .WithOne(p => p.AlumnoMovimientoCarrera)
                     .HasForeignKey<AlumnoMovimientoCarrera>(d => d.AlumnoMovimientoId)
                     .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK_AlumnoMovimientoCarrera_AlumnoMovimiento1");
+                    .HasConstraintName("FK_AlumnoMovimientoCarrera_AlumnoMovimiento");
             });
 
             modelBuilder.Entity<AlumnoPassword>(entity =>
@@ -1992,6 +2033,28 @@ namespace UniYMCAv3.Models
 
             modelBuilder.Entity<Docente>(entity =>
             {
+                entity.ToTable("Docente", "Egresos");
+
+                entity.Property(e => e.DocenteId).ValueGeneratedNever();
+
+                entity.Property(e => e.FechaAlta).HasColumnType("date");
+
+                entity.Property(e => e.HoraAlta).HasColumnType("time(0)");
+
+                entity.Property(e => e.Materno).HasColumnType("varchar(50)");
+
+                entity.Property(e => e.Nombre).HasColumnType("varchar(75)");
+
+                entity.Property(e => e.Paterno).HasColumnType("varchar(50)");
+            });
+
+            modelBuilder.Entity<Docente1>(entity =>
+            {
+                entity.HasKey(e => e.DocenteId)
+                    .HasName("PK_Docente");
+
+                entity.ToTable("Docente");
+
                 entity.Property(e => e.FechaAlta).HasColumnType("date");
 
                 entity.Property(e => e.Materno)
@@ -2007,7 +2070,7 @@ namespace UniYMCAv3.Models
                     .HasColumnType("varchar(250)");
 
                 entity.HasOne(d => d.Usuario)
-                    .WithMany(p => p.Docente)
+                    .WithMany(p => p.Docente1)
                     .HasForeignKey(d => d.UsuarioId)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_Docente_Usuario");
@@ -2017,6 +2080,52 @@ namespace UniYMCAv3.Models
             {
                 entity.HasKey(e => e.DocenteId)
                     .HasName("PK_DocenteDetalle");
+
+                entity.ToTable("DocenteDetalle", "Egresos");
+
+                entity.Property(e => e.DocenteId).ValueGeneratedNever();
+
+                entity.Property(e => e.Calle).HasColumnType("varchar(100)");
+
+                entity.Property(e => e.Celular).HasColumnType("varchar(30)");
+
+                entity.Property(e => e.Colonia).HasColumnType("varchar(100)");
+
+                entity.Property(e => e.Cp)
+                    .HasColumnName("CP")
+                    .HasColumnType("varchar(10)");
+
+                entity.Property(e => e.Curp)
+                    .HasColumnName("CURP")
+                    .HasColumnType("varchar(50)");
+
+                entity.Property(e => e.Email).HasColumnType("varchar(100)");
+
+                entity.Property(e => e.FechaNaciminto).HasColumnType("date");
+
+                entity.Property(e => e.NoExterior).HasColumnType("varchar(30)");
+
+                entity.Property(e => e.NoInterior).HasColumnType("varchar(30)");
+
+                entity.Property(e => e.Nss)
+                    .HasColumnName("NSS")
+                    .HasColumnType("varchar(30)");
+
+                entity.Property(e => e.Rfc)
+                    .HasColumnName("RFC")
+                    .HasColumnType("varchar(50)");
+
+                entity.Property(e => e.TelefonoCasa).HasColumnType("varchar(30)");
+
+                entity.Property(e => e.TelefonoOficina).HasColumnType("varchar(30)");
+            });
+
+            modelBuilder.Entity<DocenteDetalle1>(entity =>
+            {
+                entity.HasKey(e => e.DocenteId)
+                    .HasName("PK_DocenteDetalle");
+
+                entity.ToTable("DocenteDetalle");
 
                 entity.Property(e => e.DocenteId).ValueGeneratedNever();
 
@@ -2036,22 +2145,62 @@ namespace UniYMCAv3.Models
                 entity.Property(e => e.TelefonoCelular).HasColumnType("varchar(50)");
 
                 entity.HasOne(d => d.Docente)
-                    .WithOne(p => p.DocenteDetalle)
-                    .HasForeignKey<DocenteDetalle>(d => d.DocenteId)
+                    .WithOne(p => p.DocenteDetalle1)
+                    .HasForeignKey<DocenteDetalle1>(d => d.DocenteId)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_DocenteDetalle_Docente");
 
                 entity.HasOne(d => d.EstadoCivil)
-                    .WithMany(p => p.DocenteDetalle)
+                    .WithMany(p => p.DocenteDetalle1)
                     .HasForeignKey(d => d.EstadoCivilId)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_DocenteDetalle_EstadoCivil");
 
                 entity.HasOne(d => d.Genero)
-                    .WithMany(p => p.DocenteDetalle)
+                    .WithMany(p => p.DocenteDetalle1)
                     .HasForeignKey(d => d.GeneroId)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_DocenteDetalle_Genero");
+            });
+
+            modelBuilder.Entity<DocenteEstudio>(entity =>
+            {
+                entity.HasKey(e => new { e.DocenteId, e.Descripcion })
+                    .HasName("PK_DocenteAntecedente");
+
+                entity.ToTable("DocenteEstudio", "Egresos");
+
+                entity.Property(e => e.Descripcion).HasColumnType("varchar(200)");
+
+                entity.Property(e => e.FechaExpedicion).HasColumnType("date");
+
+                entity.Property(e => e.FechaRegistro).HasColumnType("date");
+
+                entity.Property(e => e.Institucion).HasColumnType("varchar(200)");
+
+                entity.Property(e => e.NoCedula).HasColumnType("varchar(50)");
+            });
+
+            modelBuilder.Entity<DocentePublicacion>(entity =>
+            {
+                entity.HasKey(e => new { e.DocenteId, e.TituloPublicacion })
+                    .HasName("PK_DocentePublicacion");
+
+                entity.ToTable("DocentePublicacion", "Egresos");
+
+                entity.Property(e => e.TituloPublicacion).HasColumnType("varchar(200)");
+
+                entity.Property(e => e.Editorial).HasColumnType("varchar(200)");
+
+                entity.Property(e => e.FechaPublicacion).HasColumnType("date");
+
+                entity.Property(e => e.FechaRegistro).HasColumnType("date");
+
+                entity.Property(e => e.NoPagina).HasColumnType("varchar(50)");
+
+                entity.Property(e => e.NoVolumen).HasColumnType("varchar(50)");
+
+                entity.Property(e => e.Titulo).HasColumnType("varchar(200)");
             });
 
             modelBuilder.Entity<Empresa>(entity =>
@@ -2229,8 +2378,13 @@ namespace UniYMCAv3.Models
                     .HasColumnType("varchar(20)");
             });
 
-            modelBuilder.Entity<Grupo>(entity =>
+            modelBuilder.Entity<Grupo1>(entity =>
             {
+                entity.HasKey(e => e.GrupoId)
+                    .HasName("PK_Grupo_1");
+
+                entity.ToTable("Grupo");
+
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
                     .HasColumnType("varchar(100)");
@@ -2244,13 +2398,13 @@ namespace UniYMCAv3.Models
                     .HasColumnType("varchar(200)");
 
                 entity.HasOne(d => d.Empresa)
-                    .WithMany(p => p.Grupo)
+                    .WithMany(p => p.Grupo1)
                     .HasForeignKey(d => d.EmpresaId)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_Grupo_Empresa");
 
                 entity.HasOne(d => d.Usuario)
-                    .WithMany(p => p.Grupo)
+                    .WithMany(p => p.Grupo1)
                     .HasForeignKey(d => d.UsuarioId)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_Grupo_Usuario");
@@ -2436,6 +2590,13 @@ namespace UniYMCAv3.Models
                     .HasConstraintName("FK_GrupoDetalle_Grupo");
             });
 
+            modelBuilder.Entity<Hora>(entity =>
+            {
+                entity.ToTable("Hora", "Egresos");
+
+                entity.Property(e => e.Descripcion).HasColumnType("nchar(10)");
+            });
+
             modelBuilder.Entity<IdiomaGrupo>(entity =>
             {
                 entity.Property(e => e.Descripcion).HasColumnType("varchar(50)");
@@ -2502,6 +2663,45 @@ namespace UniYMCAv3.Models
                     .HasForeignKey<LenguasRelacion>(d => d.CuotaId)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_LenguasRelacion_Cuota");
+            });
+
+            modelBuilder.Entity<Materia>(entity =>
+            {
+                entity.ToTable("Materia", "Egresos");
+
+                entity.Property(e => e.Clave).HasColumnType("varchar(20)");
+
+                entity.Property(e => e.Creditos).HasColumnType("decimal");
+
+                entity.Property(e => e.Descripcion).HasColumnType("varchar(200)");
+
+                entity.Property(e => e.FechaRegistro).HasColumnType("date");
+            });
+
+            modelBuilder.Entity<MateriaApertura>(entity =>
+            {
+                entity.ToTable("MateriaApertura", "Egresos");
+
+                entity.Property(e => e.Duracion).HasColumnType("decimal");
+
+                entity.Property(e => e.FechaApertura).HasColumnType("date");
+            });
+
+            modelBuilder.Entity<MateriaCompartida>(entity =>
+            {
+                entity.HasKey(e => new { e.MateriaCompartidadId, e.MateriaAperturaId })
+                    .HasName("PK_MateriaCompartida");
+
+                entity.ToTable("MateriaCompartida", "Egresos");
+
+                entity.Property(e => e.FechaGeneracion).HasColumnType("date");
+            });
+
+            modelBuilder.Entity<MateriaTipo>(entity =>
+            {
+                entity.ToTable("MateriaTipo", "Egresos");
+
+                entity.Property(e => e.Descripcion).HasColumnType("varchar(50)");
             });
 
             modelBuilder.Entity<Matricula>(entity =>
@@ -3545,22 +3745,48 @@ namespace UniYMCAv3.Models
 
                 entity.Property(e => e.SubPregunta).HasColumnType("varchar(200)");
 
-                entity.HasOne(d => d.PreguntaRelacion)
+                entity.HasOne(d => d.PreguntaConfiguracion)
                     .WithMany(p => p.Pregunta)
-                    .HasForeignKey(d => d.PreguntaRelacionId)
+                    .HasForeignKey(d => d.PreguntaConfiguracionId)
                     .HasConstraintName("FK_Pregunta_PreguntaRelacion");
-
-                entity.HasOne(d => d.PreguntaRelacionNavigation)
-                    .WithMany(p => p.Pregunta)
-                    .HasForeignKey(d => d.PreguntaRelacionId)
-                    .HasConstraintName("FK_Pregunta_PreguntaTipo");
             });
 
-            modelBuilder.Entity<PreguntaRelacion>(entity =>
+            modelBuilder.Entity<PreguntaCompuesta>(entity =>
             {
+                entity.HasKey(e => e.PreguntaConfiguracionId)
+                    .HasName("PK_PreguntaCompuesta");
+
+                entity.Property(e => e.PreguntaConfiguracionId).ValueGeneratedNever();
+
+                entity.HasOne(d => d.PreguntaTipo)
+                    .WithMany(p => p.PreguntaCompuesta)
+                    .HasForeignKey(d => d.PreguntaTipoId)
+                    .HasConstraintName("FK_PreguntaCompuesta_PreguntaTipo");
+
+                entity.HasOne(d => d.PreguntaTipoValores)
+                    .WithMany(p => p.PreguntaCompuesta)
+                    .HasForeignKey(d => d.PreguntaTipoValoresId)
+                    .HasConstraintName("FK_PreguntaCompuesta_PreguntaTipoValores");
+            });
+
+            modelBuilder.Entity<PreguntaConfiguracion>(entity =>
+            {
+                entity.Property(e => e.PreguntaConfiguracionId).ValueGeneratedOnAdd();
+
                 entity.Property(e => e.Descripcion).HasColumnType("varchar(100)");
 
                 entity.Property(e => e.EsCompuesta).HasColumnName("esCompuesta");
+
+                entity.HasOne(d => d.PreguntaConfiguracionNavigation)
+                    .WithOne(p => p.PreguntaConfiguracion)
+                    .HasForeignKey<PreguntaConfiguracion>(d => d.PreguntaConfiguracionId)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK_PreguntaConfiguracion_PreguntaCompuesta");
+
+                entity.HasOne(d => d.PreguntaTipo)
+                    .WithMany(p => p.PreguntaConfiguracion)
+                    .HasForeignKey(d => d.PreguntaTipoId)
+                    .HasConstraintName("FK_PreguntaRelacion_PreguntaTipo2");
             });
 
             modelBuilder.Entity<PreguntaTipo>(entity =>
@@ -3577,12 +3803,12 @@ namespace UniYMCAv3.Models
 
             modelBuilder.Entity<PreguntaTipoValores>(entity =>
             {
-                entity.Property(e => e.Descripcion).HasColumnType("varchar(50)");
+                entity.Property(e => e.Descripcion).HasColumnType("varchar(100)");
 
                 entity.HasOne(d => d.PreguntaTipo)
                     .WithMany(p => p.PreguntaTipoValores)
                     .HasForeignKey(d => d.PreguntaTipoId)
-                    .HasConstraintName("FK_PreguntaTipoValores_PreguntaTipo");
+                    .HasConstraintName("FK_PreguntaTipoValores_PreguntaTipo1");
             });
 
             modelBuilder.Entity<PreguntaValor>(entity =>
@@ -4080,7 +4306,7 @@ namespace UniYMCAv3.Models
 
                 entity.Property(e => e.Observaciones)
                     .IsRequired()
-                    .HasColumnType("varchar(200)")
+                    .HasColumnType("varchar(300)")
                     .HasDefaultValueSql("''");
 
                 entity.Property(e => e.ReferenciaId)
@@ -4330,7 +4556,48 @@ namespace UniYMCAv3.Models
                 entity.HasOne(d => d.Pregunta)
                     .WithMany(p => p.Respuesta)
                     .HasForeignKey(d => d.PreguntaId)
-                    .HasConstraintName("FK_Respuesta_Pregunta");
+                    .HasConstraintName("FK_Respuesta_Pregunta2");
+
+                entity.HasOne(d => d.PreguntaTipoValoresId1Navigation)
+                    .WithMany(p => p.RespuestaPreguntaTipoValoresId1Navigation)
+                    .HasForeignKey(d => d.PreguntaTipoValoresId1)
+                    .HasConstraintName("FK_Respuesta_PreguntaTipoValores2");
+
+                entity.HasOne(d => d.PreguntaTipoValoresId2Navigation)
+                    .WithMany(p => p.RespuestaPreguntaTipoValoresId2Navigation)
+                    .HasForeignKey(d => d.PreguntaTipoValoresId2)
+                    .HasConstraintName("FK_Respuesta_PreguntaTipoValores3");
+            });
+
+            modelBuilder.Entity<Salon>(entity =>
+            {
+                entity.ToTable("Salon", "Egresos");
+
+                entity.Property(e => e.SalonId).ValueGeneratedNever();
+
+                entity.Property(e => e.Descripcion).HasColumnType("varchar(100)");
+
+                entity.Property(e => e.Detalle).HasColumnType("varchar(300)");
+            });
+
+            modelBuilder.Entity<SalonAsignacion>(entity =>
+            {
+                entity.ToTable("SalonAsignacion", "Egresos");
+
+                entity.Property(e => e.SalonAsignacionId).ValueGeneratedNever();
+
+                entity.Property(e => e.FechaAsignacion).HasColumnType("date");
+
+                entity.Property(e => e.HoraAsignacion).HasColumnType("time(0)");
+            });
+
+            modelBuilder.Entity<Sede>(entity =>
+            {
+                entity.ToTable("Sede", "Egresos");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasColumnType("varchar(50)");
             });
 
             modelBuilder.Entity<SistemaConfiguracion>(entity =>

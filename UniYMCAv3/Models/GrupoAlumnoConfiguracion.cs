@@ -24,7 +24,7 @@ namespace UniYMCAv3.Models
 
         public virtual Alumno Alumno { get; set; }
         public virtual Estatus Estatus { get; set; }
-        public virtual Grupo Grupo { get; set; }
+        public virtual Grupo1 Grupo { get; set; }
         public virtual OfertaEducativa OfertaEducativa { get; set; }
         public virtual PagoPlan PagoPlan { get; set; }
         public virtual Usuario Usuario { get; set; }

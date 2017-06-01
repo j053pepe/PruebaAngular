@@ -10,8 +10,9 @@ namespace UniYMCAv3.Models
         public int Cuatrimestre { get; set; }
         public int Anio { get; set; }
         public int PeriodoId { get; set; }
-        public DateTime FechaInscripcion { get; set; }
-        public TimeSpan HoraInscripcion { get; set; }
+        public bool? EsRegular { get; set; }
+        public DateTime FechaAsignacion { get; set; }
+        public TimeSpan HoraAsignacion { get; set; }
         public int UsuarioId { get; set; }
     }
 }

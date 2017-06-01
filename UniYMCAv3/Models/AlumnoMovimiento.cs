@@ -8,6 +8,8 @@ namespace UniYMCAv3.Models
         public int AlumnoMovimientoId { get; set; }
         public int? AlumnoId { get; set; }
         public int? OfertaEducativaId { get; set; }
+        public int? Anio { get; set; }
+        public int? PeriodoId { get; set; }
         public int? TipoMovimientoId { get; set; }
         public DateTime? Fecha { get; set; }
         public TimeSpan? Hora { get; set; }

@@ -7,7 +7,7 @@ namespace UniYMCAv3.Models
     {
         public Empresa()
         {
-            Grupo = new HashSet<Grupo>();
+            Grupo1 = new HashSet<Grupo1>();
         }
 
         public int EmpresaId { get; set; }
@@ -19,7 +19,7 @@ namespace UniYMCAv3.Models
 
         public virtual DatosFiscales DatosFiscales { get; set; }
         public virtual EmpresaDetalle EmpresaDetalle { get; set; }
-        public virtual ICollection<Grupo> Grupo { get; set; }
+        public virtual ICollection<Grupo1> Grupo1 { get; set; }
         public virtual Usuario Usuario { get; set; }
     }
 }

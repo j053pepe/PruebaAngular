@@ -10,7 +10,7 @@ namespace UniYMCAv3.Models
             AlumnoDetalle = new HashSet<AlumnoDetalle>();
             AlumnoDetalleAlumno = new HashSet<AlumnoDetalleAlumno>();
             AlumnoDetalleCoordinador = new HashSet<AlumnoDetalleCoordinador>();
-            DocenteDetalle = new HashSet<DocenteDetalle>();
+            DocenteDetalle1 = new HashSet<DocenteDetalle1>();
             ProspectoDetalle = new HashSet<ProspectoDetalle>();
         }
 
@@ -20,7 +20,7 @@ namespace UniYMCAv3.Models
         public virtual ICollection<AlumnoDetalle> AlumnoDetalle { get; set; }
         public virtual ICollection<AlumnoDetalleAlumno> AlumnoDetalleAlumno { get; set; }
         public virtual ICollection<AlumnoDetalleCoordinador> AlumnoDetalleCoordinador { get; set; }
-        public virtual ICollection<DocenteDetalle> DocenteDetalle { get; set; }
+        public virtual ICollection<DocenteDetalle1> DocenteDetalle1 { get; set; }
         public virtual ICollection<ProspectoDetalle> ProspectoDetalle { get; set; }
     }
 }
