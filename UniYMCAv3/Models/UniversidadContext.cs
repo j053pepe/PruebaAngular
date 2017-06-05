@@ -243,11 +243,14 @@ namespace UniYMCAv3.Models
         // Unable to generate entity type for table 'dbo.tmpPago'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.tmpAlumnoDescuento'. Please see the warning messages.
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+        //    optionsBuilder.UseSqlServer(@"Server=108.163.172.122;Database=Universidad_w;Persist Security Info=True;User ID=usrProgramador;Password=Programador@@23+;MultipleActiveResultSets=True;Application Name=EntityFramework");
+        //}
 
+        public UniversidadContext(DbContextOptions<UniversidadContext> options): base(options)
+        { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Adeudo>(entity =>

@@ -30,7 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="DTO\" />
     <Folder Include="Models\" />
   </ItemGroup>  
   <Target Name="RunWebpack" AfterTargets="ComputeFilesToPublish">
