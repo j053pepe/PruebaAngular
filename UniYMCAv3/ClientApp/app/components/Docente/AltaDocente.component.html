@@ -14,9 +14,6 @@
 
 
         <div class="ui-md-12">
-            <p-growl [value]="msgs" sticky="sticky"></p-growl>
-
-
             <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
                 <p-tabPanel [selected]="tab1" style="border:0px solid !important">
                     <form [formGroup]="tab1form">
@@ -473,7 +470,76 @@
 
                 <p-tabPanel [selected]="tab3" style="border:0px solid !important">
                     <form [formGroup]="tab3form">
-                      
+
+                        <!--datos fiscales-->
+                        <p-panel header="Estudios">
+                            <div class="ui-grid-row">
+                                <div class="ui-grid-row">
+                                    <div class="ui-md-10">
+                                        Institución 
+                                        <input type="text" pInputText formControlName="institucion" />
+                                    </div>
+                                    <div class="ui-md-2">
+                                        <br />
+                                        <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!tab3form.controls['institucion'].valid&&(tab3form.controls['institucion'].dirty||validar)">
+                                            <i class="fa fa-close"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ui-grid-row">
+                                    <div class="ui-md-10">
+                                        Nivel 
+                                        <input type="text" pInputText formControlName="nivel" />
+                                    </div>
+                                    <div class="ui-md-2">
+                                        <br />
+                                        <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!tab3form.controls['nivel'].valid&&(tab3form.controls['nivel'].dirty||validar)">
+                                            <i class="fa fa-close"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui-grid-row">
+                                    <div class="ui-md-10">
+                                        Carrera 
+                                        <input type="text" pInputText formControlName="carrera" />
+                                    </div>
+                                    <div class="ui-md-2">
+                                        <br />
+                                        <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!tab3form.controls['carrera'].valid&&(tab3form.controls['carrera'].dirty||validar)">
+                                            <i class="fa fa-close"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ui-grid-row">
+                                    <div class="ui-md-10">
+                                        Comprobante (Cedula) 
+                                        <p-growl [value]="msgs"></p-growl>
+
+                                        <p-fileUpload name="demo[]" url="http://localhost:61821/AltaDocente" (onUpload)="onUpload($event)"
+                                                      multiple="multiple"  maxFileSize="1000000">
+                                            <template pTemplate type="content">
+                                                <ul *ngIf="uploadedFiles.length">
+                                                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                                                </ul>
+                                            </template>
+                                        </p-fileUpload>
+                                    </div>
+                                    <div class="ui-md-2">
+                                        <br />
+                                        <div class="ui-message ui-messages-error ui-corner-all " *ngIf="!tab3form.controls['comprobante'].valid&&(tab3form.controls['comprobante'].dirty||validar)">
+                                            <i class="fa fa-close"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </p-panel>
+
+                        <p-panel header="Publicaciones">
+
+                        </p-panel>
                     </form>
                 </p-tabPanel>
             </div>

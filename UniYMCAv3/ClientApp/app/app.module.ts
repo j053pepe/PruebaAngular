@@ -14,7 +14,7 @@ import {
     DataTableModule,
     SharedModule,
     DropdownModule,
-    StepsModule, TabViewModule, PanelModule, ChipsModule, CalendarModule, CheckboxModule
+    StepsModule, TabViewModule, PanelModule, ChipsModule, CalendarModule, CheckboxModule, FileUploadModule
 } from 'primeng/primeng';
 
 
@@ -47,7 +47,8 @@ import {
         PanelModule,
         ChipsModule,
         CalendarModule,
-        CheckboxModule
+        CheckboxModule,
+        FileUploadModule
     ]
 })
 export class AppModule {

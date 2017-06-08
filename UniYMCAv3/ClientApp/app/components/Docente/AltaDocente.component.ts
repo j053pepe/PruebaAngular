@@ -83,10 +83,8 @@ export class AltaDocenteComponent implements OnInit {
     tab3form: FormGroup;
     submitted: boolean;
     description: string;
-
+    uploadedFiles: any[] = [];
     constructor(private http: Http, private  fb: FormBuilder) { }
-
-
 
     ngOnInit() {
 
@@ -152,7 +150,6 @@ export class AltaDocenteComponent implements OnInit {
             'email': new FormControl('', Validators.required)
             
         });
-
         this.tab2form = this.fb.group({
             'rfc': new FormControl('', Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(13)])),
             'razon': new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)])),
@@ -168,7 +165,11 @@ export class AltaDocenteComponent implements OnInit {
 
         });
         this.tab3form = this.fb.group({
-          
+            'institucion': new FormControl('', Validators.required),
+            'nivel': new FormControl('', Validators.required),
+            'carrera': new FormControl('', Validators.required),
+            'comprobante': new FormControl('', Validators.required)
+        
 
         });
         this.CargarCatalogos();
@@ -239,19 +240,19 @@ export class AltaDocenteComponent implements OnInit {
        
         if (this.activeIndex < 3)
         {
-            if (this.activeIndex == 0)
-            {
-                if (!this.tab1form.valid)
-                {
-                    this.validar = true;
-                    return false;
-                }
-            } else if (this.activeIndex == 1) {
-                if (!this.tab2form.valid) {
-                    this.validar = true;
-                    return false;
-                }
-            }
+            //if (this.activeIndex == 0)
+            //{
+            //    if (!this.tab1form.valid)
+            //    {
+            //        this.validar = true;
+            //        return false;
+            //    }
+            //} else if (this.activeIndex == 1) {
+            //    if (!this.tab2form.valid) {
+            //        this.validar = true;
+            //        return false;
+            //    }
+            //}
 
             this.validar = false;
             this.activeIndex = this.activeIndex + 1;
@@ -326,6 +327,16 @@ export class AltaDocenteComponent implements OnInit {
             return { 'invalidEmailAddress': true };
         }
     }
+
+    //cargar archivo//
+   onUpload(event) {
+       for (let file of event.files) {
+           this.uploadedFiles.push(file);
+       }
+
+       this.msgs = [];
+       this.msgs.push({ severity: 'info', summary: 'File Uploaded', detail: '' });
+   }
 
 }
 
